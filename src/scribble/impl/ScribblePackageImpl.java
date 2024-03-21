@@ -247,7 +247,7 @@ public class ScribblePackageImpl extends EPackageImpl implements ScribblePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getText_Input() {
+	public EAttribute getText_Text() {
 		return (EAttribute)textEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -365,7 +365,7 @@ public class ScribblePackageImpl extends EPackageImpl implements ScribblePackage
 		createEAttribute(stopWordEClass, STOP_WORD__STOP_WORD_NAME);
 
 		textEClass = createEClass(TEXT);
-		createEAttribute(textEClass, TEXT__INPUT);
+		createEAttribute(textEClass, TEXT__TEXT);
 
 		modelEClass = createEClass(MODEL);
 
@@ -418,13 +418,13 @@ public class ScribblePackageImpl extends EPackageImpl implements ScribblePackage
 		initEReference(getTextProcessor_Stemwords(), this.getStemWords(), null, "stemwords", null, 0, -1, TextProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextProcessor_Token(), this.getToken(), null, "token", null, 0, -1, TextProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextProcessor_Text(), this.getText(), null, "text", null, 1, 1, TextProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTextProcessor_Stringtoint(), this.getStringToInt(), null, "stringtoint", null, 0, 1, TextProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTextProcessor_Stringtoint(), this.getStringToInt(), null, "stringtoint", null, 0, -1, TextProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stopWordEClass, StopWord.class, "StopWord", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStopWord_StopWordName(), ecorePackage.getEString(), "stopWordName", null, 0, 1, StopWord.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getText_Input(), ecorePackage.getEString(), "input", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getText_Text(), ecorePackage.getEString(), "text", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

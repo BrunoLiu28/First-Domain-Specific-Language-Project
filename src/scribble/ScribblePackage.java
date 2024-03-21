@@ -140,7 +140,7 @@ public interface ScribblePackage extends EPackage {
 	int TEXT_PROCESSOR__TEXT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Stringtoint</b></em>' reference.
+	 * The feature id for the '<em><b>Stringtoint</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -214,13 +214,13 @@ public interface ScribblePackage extends EPackage {
 	int TEXT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Input</b></em>' attribute.
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__INPUT = 0;
+	int TEXT__TEXT = 0;
 
 	/**
 	 * The number of structural features of the '<em>Text</em>' class.
@@ -465,10 +465,10 @@ public interface ScribblePackage extends EPackage {
 	EReference getTextProcessor_Text();
 
 	/**
-	 * Returns the meta object for the reference '{@link scribble.TextProcessor#getStringtoint <em>Stringtoint</em>}'.
+	 * Returns the meta object for the reference list '{@link scribble.TextProcessor#getStringtoint <em>Stringtoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Stringtoint</em>'.
+	 * @return the meta object for the reference list '<em>Stringtoint</em>'.
 	 * @see scribble.TextProcessor#getStringtoint()
 	 * @see #getTextProcessor()
 	 * @generated
@@ -507,15 +507,15 @@ public interface ScribblePackage extends EPackage {
 	EClass getText();
 
 	/**
-	 * Returns the meta object for the attribute '{@link scribble.Text#getInput <em>Input</em>}'.
+	 * Returns the meta object for the attribute '{@link scribble.Text#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Input</em>'.
-	 * @see scribble.Text#getInput()
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see scribble.Text#getText()
 	 * @see #getText()
 	 * @generated
 	 */
-	EAttribute getText_Input();
+	EAttribute getText_Text();
 
 	/**
 	 * Returns the meta object for class '{@link scribble.Model <em>Model</em>}'.
@@ -685,7 +685,7 @@ public interface ScribblePackage extends EPackage {
 		EReference TEXT_PROCESSOR__TEXT = eINSTANCE.getTextProcessor_Text();
 
 		/**
-		 * The meta object literal for the '<em><b>Stringtoint</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Stringtoint</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -721,12 +721,12 @@ public interface ScribblePackage extends EPackage {
 		EClass TEXT = eINSTANCE.getText();
 
 		/**
-		 * The meta object literal for the '<em><b>Input</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEXT__INPUT = eINSTANCE.getText_Input();
+		EAttribute TEXT__TEXT = eINSTANCE.getText_Text();
 
 		/**
 		 * The meta object literal for the '{@link scribble.impl.ModelImpl <em>Model</em>}' class.

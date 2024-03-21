@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link scribble.Text#getInput <em>Input</em>}</li>
+ *   <li>{@link scribble.Text#getText <em>Text</em>}</li>
  * </ul>
  *
  * @see scribble.ScribblePackage#getText()
@@ -22,25 +22,25 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Text extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Input</b></em>' attribute.
+	 * Returns the value of the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input</em>' attribute.
-	 * @see #setInput(String)
-	 * @see scribble.ScribblePackage#getText_Input()
+	 * @return the value of the '<em>Text</em>' attribute.
+	 * @see #setText(String)
+	 * @see scribble.ScribblePackage#getText_Text()
 	 * @model
 	 * @generated
 	 */
-	String getInput();
+	String getText();
 
 	/**
-	 * Sets the value of the '{@link scribble.Text#getInput <em>Input</em>}' attribute.
+	 * Sets the value of the '{@link scribble.Text#getText <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Input</em>' attribute.
-	 * @see #getInput()
+	 * @param value the new value of the '<em>Text</em>' attribute.
+	 * @see #getText()
 	 * @generated
 	 */
-	void setInput(String value);
+	void setText(String value);
 
 } // Text

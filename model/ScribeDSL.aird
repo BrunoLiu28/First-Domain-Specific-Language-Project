@@ -4,7 +4,7 @@
     <semanticResources>ScribeDSL.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_7Myp4Oa8Ee62bvppDtE-EQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_8QwoUOa8Ee62bvppDtE-EQ" name=" class diagram" repPath="#_8QBogOa8Ee62bvppDtE-EQ" changeId="1711035490439">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_8QwoUOa8Ee62bvppDtE-EQ" name=" class diagram" repPath="#_8QBogOa8Ee62bvppDtE-EQ" changeId="1711062957631">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="ScribeDSL.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -283,10 +283,10 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_4NNG8Ob2Ee6eSIbWCF0UEg" name="input : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="ScribeDSL.ecore#//Text/input"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="ScribeDSL.ecore#//Text/input"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_-FfI8eb2Ee6eSIbWCF0UEg" labelAlignment="LEFT">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_4NNG8Ob2Ee6eSIbWCF0UEg" name="text : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="ScribeDSL.ecore#//Text/text"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="ScribeDSL.ecore#//Text/text"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_l4NqkufQEe6M_fkoaWnf1w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>

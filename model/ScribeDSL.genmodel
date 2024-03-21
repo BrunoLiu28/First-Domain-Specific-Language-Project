@@ -19,7 +19,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ScribeDSL.ecore#//StopWord/stopWordName"/>
     </genClasses>
     <genClasses ecoreClass="ScribeDSL.ecore#//Text">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ScribeDSL.ecore#//Text/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ScribeDSL.ecore#//Text/text"/>
     </genClasses>
     <genClasses ecoreClass="ScribeDSL.ecore#//Model"/>
     <genClasses ecoreClass="ScribeDSL.ecore#//Token">

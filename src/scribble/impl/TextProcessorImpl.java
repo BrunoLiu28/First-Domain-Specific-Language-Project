@@ -83,14 +83,14 @@ public class TextProcessorImpl extends MinimalEObjectImpl.Container implements T
 	protected Text text;
 
 	/**
-	 * The cached value of the '{@link #getStringtoint() <em>Stringtoint</em>}' reference.
+	 * The cached value of the '{@link #getStringtoint() <em>Stringtoint</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStringtoint()
 	 * @generated
 	 * @ordered
 	 */
-	protected StringToInt stringtoint;
+	protected EList<StringToInt> stringtoint;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,37 +190,11 @@ public class TextProcessorImpl extends MinimalEObjectImpl.Container implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StringToInt getStringtoint() {
-		if (stringtoint != null && stringtoint.eIsProxy()) {
-			InternalEObject oldStringtoint = (InternalEObject)stringtoint;
-			stringtoint = (StringToInt)eResolveProxy(oldStringtoint);
-			if (stringtoint != oldStringtoint) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ScribblePackage.TEXT_PROCESSOR__STRINGTOINT, oldStringtoint, stringtoint));
-			}
+	public EList<StringToInt> getStringtoint() {
+		if (stringtoint == null) {
+			stringtoint = new EObjectResolvingEList<StringToInt>(StringToInt.class, this, ScribblePackage.TEXT_PROCESSOR__STRINGTOINT);
 		}
 		return stringtoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StringToInt basicGetStringtoint() {
-		return stringtoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStringtoint(StringToInt newStringtoint) {
-		StringToInt oldStringtoint = stringtoint;
-		stringtoint = newStringtoint;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScribblePackage.TEXT_PROCESSOR__STRINGTOINT, oldStringtoint, stringtoint));
 	}
 
 	/**
@@ -241,8 +215,7 @@ public class TextProcessorImpl extends MinimalEObjectImpl.Container implements T
 				if (resolve) return getText();
 				return basicGetText();
 			case ScribblePackage.TEXT_PROCESSOR__STRINGTOINT:
-				if (resolve) return getStringtoint();
-				return basicGetStringtoint();
+				return getStringtoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,7 +245,8 @@ public class TextProcessorImpl extends MinimalEObjectImpl.Container implements T
 				setText((Text)newValue);
 				return;
 			case ScribblePackage.TEXT_PROCESSOR__STRINGTOINT:
-				setStringtoint((StringToInt)newValue);
+				getStringtoint().clear();
+				getStringtoint().addAll((Collection<? extends StringToInt>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -299,7 +273,7 @@ public class TextProcessorImpl extends MinimalEObjectImpl.Container implements T
 				setText((Text)null);
 				return;
 			case ScribblePackage.TEXT_PROCESSOR__STRINGTOINT:
-				setStringtoint((StringToInt)null);
+				getStringtoint().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -322,7 +296,7 @@ public class TextProcessorImpl extends MinimalEObjectImpl.Container implements T
 			case ScribblePackage.TEXT_PROCESSOR__TEXT:
 				return text != null;
 			case ScribblePackage.TEXT_PROCESSOR__STRINGTOINT:
-				return stringtoint != null;
+				return stringtoint != null && !stringtoint.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -86,25 +86,15 @@ public interface TextProcessor extends EObject {
 	void setText(Text value);
 
 	/**
-	 * Returns the value of the '<em><b>Stringtoint</b></em>' reference.
+	 * Returns the value of the '<em><b>Stringtoint</b></em>' reference list.
+	 * The list contents are of type {@link scribble.StringToInt}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stringtoint</em>' reference.
-	 * @see #setStringtoint(StringToInt)
+	 * @return the value of the '<em>Stringtoint</em>' reference list.
 	 * @see scribble.ScribblePackage#getTextProcessor_Stringtoint()
 	 * @model
 	 * @generated
 	 */
-	StringToInt getStringtoint();
-
-	/**
-	 * Sets the value of the '{@link scribble.TextProcessor#getStringtoint <em>Stringtoint</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Stringtoint</em>' reference.
-	 * @see #getStringtoint()
-	 * @generated
-	 */
-	void setStringtoint(StringToInt value);
+	EList<StringToInt> getStringtoint();
 
 } // TextProcessor

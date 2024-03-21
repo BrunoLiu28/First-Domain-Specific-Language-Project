@@ -20,31 +20,31 @@ import scribble.Text;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link scribble.impl.TextImpl#getInput <em>Input</em>}</li>
+ *   <li>{@link scribble.impl.TextImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	/**
-	 * The default value of the '{@link #getInput() <em>Input</em>}' attribute.
+	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInput()
+	 * @see #getText()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String INPUT_EDEFAULT = null;
+	protected static final String TEXT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getInput() <em>Input</em>}' attribute.
+	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInput()
+	 * @see #getText()
 	 * @generated
 	 * @ordered
 	 */
-	protected String input = INPUT_EDEFAULT;
+	protected String text = TEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,8 +70,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getInput() {
-		return input;
+	public String getText() {
+		return text;
 	}
 
 	/**
@@ -79,11 +79,11 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInput(String newInput) {
-		String oldInput = input;
-		input = newInput;
+	public void setText(String newText) {
+		String oldText = text;
+		text = newText;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScribblePackage.TEXT__INPUT, oldInput, input));
+			eNotify(new ENotificationImpl(this, Notification.SET, ScribblePackage.TEXT__TEXT, oldText, text));
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ScribblePackage.TEXT__INPUT:
-				return getInput();
+			case ScribblePackage.TEXT__TEXT:
+				return getText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,8 +108,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ScribblePackage.TEXT__INPUT:
-				setInput((String)newValue);
+			case ScribblePackage.TEXT__TEXT:
+				setText((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +123,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ScribblePackage.TEXT__INPUT:
-				setInput(INPUT_EDEFAULT);
+			case ScribblePackage.TEXT__TEXT:
+				setText(TEXT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +138,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ScribblePackage.TEXT__INPUT:
-				return INPUT_EDEFAULT == null ? input != null : !INPUT_EDEFAULT.equals(input);
+			case ScribblePackage.TEXT__TEXT:
+				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,8 +154,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (input: ");
-		result.append(input);
+		result.append(" (text: ");
+		result.append(text);
 		result.append(')');
 		return result.toString();
 	}
