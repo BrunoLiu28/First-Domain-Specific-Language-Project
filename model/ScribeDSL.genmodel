@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Scribble/src" modelPluginID="Scribble" modelName="ScribeDSL"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>../../ScribeDSL/model/ScribeDSL.ecore</foreignModel>
+  <genPackages prefix="Scribble" disposableProviderFactory="true" ecorePackage="ScribeDSL.ecore#/">
+    <genClasses ecoreClass="ScribeDSL.ecore#//ScribbleDSL">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ScribeDSL.ecore#//ScribbleDSL/textprocessor"/>
+    </genClasses>
+    <genClasses ecoreClass="ScribeDSL.ecore#//TextProcessor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ScribeDSL.ecore#//TextProcessor/stopword"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ScribeDSL.ecore#//TextProcessor/stemwords"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ScribeDSL.ecore#//TextProcessor/token"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ScribeDSL.ecore#//TextProcessor/text"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ScribeDSL.ecore#//TextProcessor/stringtoint"/>
+    </genClasses>
+    <genClasses ecoreClass="ScribeDSL.ecore#//StopWord">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ScribeDSL.ecore#//StopWord/stopWordName"/>
+    </genClasses>
+    <genClasses ecoreClass="ScribeDSL.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ScribeDSL.ecore#//Text/input"/>
+    </genClasses>
+    <genClasses ecoreClass="ScribeDSL.ecore#//Model"/>
+    <genClasses ecoreClass="ScribeDSL.ecore#//Token">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ScribeDSL.ecore#//Token/tokenName"/>
+    </genClasses>
+    <genClasses ecoreClass="ScribeDSL.ecore#//StemWords">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ScribeDSL.ecore#//StemWords/stemedWordName"/>
+    </genClasses>
+    <genClasses ecoreClass="ScribeDSL.ecore#//StringToInt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ScribeDSL.ecore#//StringToInt/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ScribeDSL.ecore#//StringToInt/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

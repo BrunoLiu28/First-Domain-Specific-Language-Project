@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="scribble" nsURI="ScribeDSL" nsPrefix="ScribleDSL">
+  <eClassifiers xsi:type="ecore:EClass" name="ScribbleDSL">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="textprocessor" lowerBound="1"
+        eType="#//TextProcessor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextProcessor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stopword" upperBound="-1"
+        eType="#//StopWord"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stemwords" upperBound="-1"
+        eType="#//StemWords"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token" upperBound="-1"
+        eType="#//Token"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="text" lowerBound="1" eType="#//Text"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringtoint" upperBound="-1"
+        eType="#//StringToInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StopWord">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopWordName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Text">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Token">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tokenName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StemWords">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stemedWordName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToInt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>
