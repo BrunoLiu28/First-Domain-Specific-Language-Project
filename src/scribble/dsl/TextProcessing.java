@@ -15,6 +15,8 @@ import scribble.Text;
 import scribble.TextProcessor;
 import scribble.Token;
 
+
+
 public class TextProcessing {
 	private static ScribbleFactory factory = ScribbleFactory.eINSTANCE;
 	
@@ -70,6 +72,11 @@ public class TextProcessing {
 	
 	public static class TextprocessorBeingBuilt implements TextProcessorAfterGetData, TextProcessorAfterToken, TextProcessorAfterStopwords, TextProcessorAfterStemming, TextProcessorAfterWordFreq{
 		
+		private static enum Status {
+	        USETOKEN,
+	        USESTEMMING
+	    }
+		
 		private ScribbleDSL scribbleBeingBuilt;
 		private TextProcessor textProcessorBeingBuilt;
 		private StringToInt mapForWordFreq;
@@ -77,6 +84,8 @@ public class TextProcessing {
 		private StemWords stemWordBeingBuilt;
 		private Token tokenBeingBuilt;
 		private Text textBeingBuilt;
+		private Status whichListToUse;
+		
 		
 		public TextprocessorBeingBuilt(TextProcessor textProcessorBeingBuilt, String text) {
 			this.textBeingBuilt = factory.createText();
@@ -85,6 +94,7 @@ public class TextProcessing {
 			this.textProcessorBeingBuilt.setText(textBeingBuilt);
 			this.scribbleBeingBuilt = factory.createScribbleDSL();
 			this.scribbleBeingBuilt.setTextprocessor(textProcessorBeingBuilt);
+			this.whichListToUse = Status.USETOKEN;
 		}
 		
 		
@@ -102,6 +112,7 @@ public class TextProcessing {
 		@Override
 		public TextProcessorAfterStopwords filterStopWords() {
 
+			//GET THE STOP WORDS FROM THE FILE
 			try (BufferedReader reader = new BufferedReader(new FileReader("StopWordList.txt"))) {
 	            String line;
 	            while ((line = reader.readLine()) != null) {
@@ -113,11 +124,12 @@ public class TextProcessing {
 	            e.printStackTrace(); 
 	        }
 			
-			for(int i = 0; i < textProcessorBeingBuilt.getStopword().size(); i++) {
-				String aux = textProcessorBeingBuilt.getStopword().get(i).getStopWordName();
+			//REMOVE THE STOP WORDS
+			for(int i = 0; i < textProcessorBeingBuilt.getToken().size(); i++) {
+				String aux = textProcessorBeingBuilt.getToken().get(i).getTokenName();
 				for (StopWord str : textProcessorBeingBuilt.getStopword()) {
 		            if (aux.equals(str.getStopWordName())) {
-		            	textProcessorBeingBuilt.getStopword().remove(i);
+		            	textProcessorBeingBuilt.getToken().remove(i);
 		            	break;
 		            }
 		        }
@@ -130,20 +142,63 @@ public class TextProcessing {
 		@Override
 		public TextProcessorAfterStemming performsStemming() {
 			// TODO Auto-generated method stub
-	
+			this.whichListToUse = Status.USESTEMMING;
 			return this;
 		}
 
 		@Override
 		public TextProcessorAfterWordFreq analyseWordFrequency() {
-			// TODO Auto-generated method stub
+			switch (whichListToUse) {
+			case USETOKEN: {
+				for(int i = 0; i < textProcessorBeingBuilt.getToken().size(); i++) {
+					String aux = textProcessorBeingBuilt.getToken().get(i).getTokenName();
+					boolean contained = false;
+					for(int l = 0; l < textProcessorBeingBuilt.getStringtoint().size(); l++) {
+						if (aux.equals(textProcessorBeingBuilt.getStringtoint().get(l).getKey())) {
+							textProcessorBeingBuilt.getStringtoint().get(l).setValue((textProcessorBeingBuilt.getStringtoint().get(l).getValue())+1);
+							contained = true;
+							break;
+							}
+						}
+					if (!contained) {
+						mapForWordFreq = factory.createStringToInt();
+		            	mapForWordFreq.setKey(aux);
+		            	mapForWordFreq.setValue(1);
+	                    textProcessorBeingBuilt.getStringtoint().add(mapForWordFreq);
+					}
+				}
+				break;
+			}
+			case USESTEMMING: {
+				for(int i = 0; i < textProcessorBeingBuilt.getStemwords().size(); i++) {
+					String aux = textProcessorBeingBuilt.getStemwords().get(i).getStemedWordName();
+					boolean contained = false;
+					for(int l = 0; l < textProcessorBeingBuilt.getStringtoint().size(); l++) {
+						if (aux.equals(textProcessorBeingBuilt.getStringtoint().get(l).getKey())) {
+							textProcessorBeingBuilt.getStringtoint().get(l).setValue((textProcessorBeingBuilt.getStringtoint().get(l).getValue())+1);
+							contained = true;
+							break;
+							}
+						}
+					if (!contained) {
+						mapForWordFreq = factory.createStringToInt();
+		            	mapForWordFreq.setKey(aux);
+		            	mapForWordFreq.setValue(1);
+	                    textProcessorBeingBuilt.getStringtoint().add(mapForWordFreq);
+					}
+				}
+				break;
+			}
+			default:
+				throw new IllegalArgumentException("Error");
+			}
+
 			return this;
 		}
 
 		@Override
 		public ScribbleDSL build() {
-			// TODO Auto-generated method stub
-			return null;
+			return scribbleBeingBuilt;
 		}
 		
 
