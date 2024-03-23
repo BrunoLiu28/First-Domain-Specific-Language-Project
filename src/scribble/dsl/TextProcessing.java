@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.tartarus.snowball.ext.PorterStemmer;
+
 import scribble.ScribbleDSL;
 import scribble.ScribbleFactory;
 import scribble.StemWords;
@@ -141,8 +143,15 @@ public class TextProcessing {
 
 		@Override
 		public TextProcessorAfterStemming performsStemming() {
-			// TODO Auto-generated method stub
+			PorterStemmer stemmer = new PorterStemmer();
 			this.whichListToUse = Status.USESTEMMING;
+			for(int i = 0; i < textProcessorBeingBuilt.getToken().size(); i++) {
+				stemmer.setCurrent(textProcessorBeingBuilt.getToken().get(i).getTokenName());
+				stemmer.stem();  
+				stemmer.getCurrent();
+				stemWordBeingBuilt = factory.createStemWords();
+				stemWordBeingBuilt.setStemedWordName(stemmer.getCurrent());
+			}
 			return this;
 		}
 
