@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.tartarus.snowball.ext.PorterStemmer;
-
+import opennlp.tools.stemmer.PorterStemmer;
 import scribble.ScribbleDSL;
 import scribble.ScribbleFactory;
 import scribble.StemWords;
@@ -28,7 +27,7 @@ public class TextProcessing {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                content.append(line).append("\n");
+                content.append(line.toLowerCase()).append("\n");
             }
         } catch (IOException e) {
             e.printStackTrace(); 
@@ -38,7 +37,7 @@ public class TextProcessing {
 
 
 	public TextProcessorAfterGetData withData(String text)  {
-		return new TextprocessorBeingBuilt(factory.createTextProcessor(), text);
+		return new TextprocessorBeingBuilt(factory.createTextProcessor(), text.toLowerCase());
 	}
 	
 	public TextProcessorAfterGetData fromFile(String filepath)  {
@@ -132,6 +131,7 @@ public class TextProcessing {
 				for (StopWord str : textProcessorBeingBuilt.getStopword()) {
 		            if (aux.equals(str.getStopWordName())) {
 		            	textProcessorBeingBuilt.getToken().remove(i);
+		            	i--;
 		            	break;
 		            }
 		        }
@@ -146,11 +146,10 @@ public class TextProcessing {
 			PorterStemmer stemmer = new PorterStemmer();
 			this.whichListToUse = Status.USESTEMMING;
 			for(int i = 0; i < textProcessorBeingBuilt.getToken().size(); i++) {
-				stemmer.setCurrent(textProcessorBeingBuilt.getToken().get(i).getTokenName());
-				stemmer.stem();  
-				stemmer.getCurrent();
+				stemmer.stem(textProcessorBeingBuilt.getToken().get(i).getTokenName()); 
 				stemWordBeingBuilt = factory.createStemWords();
-				stemWordBeingBuilt.setStemedWordName(stemmer.getCurrent());
+				stemWordBeingBuilt.setStemedWordName(stemmer.toString());
+				textProcessorBeingBuilt.getStemwords().add(stemWordBeingBuilt);
 			}
 			return this;
 		}
