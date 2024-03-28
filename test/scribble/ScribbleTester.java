@@ -18,7 +18,7 @@ public class ScribbleTester {
 		System.out.println("TESTING THE STOP WORD REMOVER\n");
 		String text2 = "The quick brown foxes jumped over the lazy dogs.";
 		ScribbleDSL stopWordRemovalTest = processor.withData(text2)
-													.tokenize("\\s+")
+													.tokenize("(\\s|\\.)+")
 													.filterStopWords()
 													.build();
 		for (Token token : stopWordRemovalTest.getTextprocessor().getToken()) {
@@ -30,7 +30,7 @@ public class ScribbleTester {
 		System.out.println("TESTING THE STEMMING\n");
 		
 		ScribbleDSL stemmingTest = processor.withData(text2)
-											.tokenize("\\s+")
+											.tokenize("(\\s|\\.)+")
 											.performsStemming()
 											.build();
 		
@@ -50,11 +50,10 @@ public class ScribbleTester {
 			System.out.println("the word \"" + stringint.getKey() + "\" appears " + stringint.getValue() + " time(s) in the text");
 		}
 
-//		----------------------------------------------------------------------------------
 		System.out.println("-------------------------------------------------------");
 		System.out.println("TESTING THE STOP WORD REMOVER WITH STEMMING\n");
 		ScribbleDSL stopWordRemovalAndStemmingTest = processor.withData(text2)
-													.tokenize("\\s+")
+													.tokenize("(\\s|\\.)+")
 													.filterStopWords()
 													.performsStemming()
 													.build();
@@ -65,7 +64,7 @@ public class ScribbleTester {
 		System.out.println("-------------------------------------------------------");
 		System.out.println("TESTING THE STOP WORD REMOVER WITH WORD FREQUENCY\n");
 		ScribbleDSL stopWordRemovalAndWordFreqTest = processor.withData(text2)
-													.tokenize("\\s+")
+													.tokenize("(\\s|\\.)+")
 													.filterStopWords()
 													.analyseWordFrequency()
 													.build();
@@ -76,7 +75,7 @@ public class ScribbleTester {
 		System.out.println("-------------------------------------------------------");
 		System.out.println("TESTING THE STEMMING WITH WORD FREQ\n");
 		ScribbleDSL stemmingAndWordFreqTest = processor.withData(text2)
-													.tokenize("\\s+")
+													.tokenize("(\\s|\\.)+")
 													.performsStemming()
 													.analyseWordFrequency()
 													.build();
@@ -86,8 +85,8 @@ public class ScribbleTester {
 		
 		System.out.println("-------------------------------------------------------");
 		System.out.println("TESTING EVERYTHING TOGETHER\n");
-		ScribbleDSL allTogetherTest = processor.withData(text2)
-													.tokenize("\\s+")
+		ScribbleDSL allTogetherTest = processor.fromFile("testFile.txt")
+													.tokenize("(\\s|\\.)+")
 													.filterStopWords()
 													.performsStemming()
 													.analyseWordFrequency()
@@ -96,25 +95,5 @@ public class ScribbleTester {
 			System.out.println("the word \"" + stringint.getKey() + "\" appears " + stringint.getValue() + " time(s) in the text");
 		}
 
-//		ScribbleDSL analyseText = processor.fromFile("testFile.txt")
-//										 	.tokenize("\\s+")
-//										 	.filterStopWords()
-//										 	.performsStemming()
-//										 	.analyseWordFrequency()
-//											.build();
-//		System.out.println("-------------------------------------------------------");
-//		ScribbleDSL analyseText = processor.withData(text2)
-//										 	.tokenize("\\s+")
-//										 	.filterStopWords()
-//										 	.performsStemming()
-//										 	.analyseWordFrequency()
-//											.build();
-//		
-//		for (StringToInt stringint : analyseText.getTextprocessor().getStringtoint()) {
-//			System.out.println("the word \"" + stringint.getKey() + "\" appears " + stringint.getValue() + " time(s) in the text");
-//		}
-//		for (StemWords token : analyseText.getTextprocessor().getStemwords()) {
-//			System.out.println(token.getStemedWordName());
-//		}
 	}
 }
